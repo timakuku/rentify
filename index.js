@@ -13,10 +13,12 @@ const app = express();
 connectDB();
 app.use('/uploads', express.static('uploads'));
 
+
 app.use(cors({
-  origin: ['http://localhost:5500', 'http://localhost:3000/api'], 
+  origin: 'https://timakuku.github.io',
   credentials: true
 }));
+
 
 app.use(express.static('public'));
 
@@ -29,4 +31,4 @@ app.use('/api/listings', listingRoutes);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Сервер запущен на порту ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
