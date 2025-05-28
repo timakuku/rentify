@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <header>
+        <link rel="stylesheet" href="styles.css">
+        <div class="logo"><img src="https://w7.pngwing.com/pngs/715/694/png-transparent-gold-r-logo-letter-p-clolorful-letters-miscellaneous-text-number-thumbnail.png"width="20" height="20" > Rental App</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Listings</a></li>
+                <li><a href="#">My Bookings</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Войти</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+</head>
+<body>
+
+<div class="gallery-container">
+    <div class="preview-container">
+        <button id="active-button" class="nav-button prev" onclick="changeImageByStep(-1)">❮</button>
+        <img id="mainImage" class="preview" src="https://static.sutochno.ru/doc/files/objects/1/939/418/67af7362c00d9.jpg" alt="Выбранное изображение">
+        <button id="active-button" class="nav-button next" onclick="changeImageByStep(1)">❯</button>
+    </div>
+
+    <div class="gallery" id="imageGallery">
+        <img src="https://static.sutochno.ru/doc/files/objects/1/939/418/67af7362d7700.jpg" alt="картинка 1" onclick="changeImage(this)">
+        <img src="https://static.sutochno.ru/doc/files/objects/1/939/418/67af7362ec2da.jpg" alt="картинка 2" onclick="changeImage(this)">
+        <img src="https://static.sutochno.ru/doc/files/objects/1/939/418/67af736297f1f.jpg" alt="картинка 3" onclick="changeImage(this)">
+        <img src="https://static.sutochno.ru/doc/files/objects/1/939/418/67af73630b37d.jpg" alt="картинка 4" onclick="changeImage(this)">
+        <img src="https://static.sutochno.ru/doc/files/objects/1/939/418/67af736320e6d.jpg" alt="картинка 5" onclick="changeImage(this)">
+        <img src="https://static.sutochno.ru/doc/files/objects/1/939/418/67af736251307.jpg" alt="картинка 6" onclick="changeImage(this)">
+    </div>
+    <div>
+        <h3 style="font-family: TT Berlinerins Trial; text-align: center;">Местоположение</h3>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23396.754154542392!2d74.5539607681249!3d42.86029955361739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ec9dbf3d3ab87%3A0x6705f2d4a45cdd99!2z0JrRi9GA0LPRi9C30YHQutC40Lkg0YLQtdGF0L3QuNGH0LXRgdC60LjQuSDRg9C90LjQstC10YDRgdC40YLQtdGC!5e0!3m2!1sru!2skg!4v1744041424029!5m2!1sru!2skg"
+    width="570" 
+    height="350" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+</div>
+
+<div class="container">
+    <h1>2-комнатная квартира — 68м²</h1>
+    <p><strong>Гостей:</strong> 6 | <strong>Кровати:</strong> 3 | <strong>Спальни:</strong> 2 | <strong>Кухонная зона</strong></p>
+    <p><strong>Этаж:</strong> 18 из 20, есть лифт</p>
+    <p>Комфортные апартаменты под названием «Премиум» ждут своих гостей в г. Минске. Квартира расположена в новом доме жилого комплекса Minsk World и отвечает самым высоким стандартам комфорта и безопасности.</p>
+
+    <h2>Правила заселения</h2>
+    <ul>
+        <li>Заезд: с 14:00 до 22:00 (возможен гибкий график по договоренности)</li>
+        <li>Выезд: до 12:00 последнего дня пребывания</li>
+        <li>Бесконтактное заселение для удобства гостей</li>
+        <li>При себе иметь паспорта всех жильцов</li>
+        <li>Курение в квартире запрещено (разрешено только на общем балконе)</li>
+        <li>Запрещено проведение мероприятий, шумных праздников и вечеринок</li>
+        <li>Принимаем наличные (BYN), безналичный расчёт (Альфа-Банк, СберБанк для граждан РФ)</li>
+        <li>Оформление командировочных документов по предварительному запросу</li>
+        <li>Уведомление о пребывании иностранных граждан</li>
+    </ul>
+
+    <h2>Дополнительные удобства</h2>
+    <ul>
+        <li>Бесплатная парковка под видеонаблюдением</li>
+        <li>Smart TV, Wi-Fi</li>
+        <li>Кондиционер</li>
+        <li>СВЧ-печь, электроплита, посудомоечная машина, холодильник</li>
+        <li>Стиральная машина, утюг, гладильная доска, сушилка</li>
+        <li>Полотенца, фен</li>
+        <li>Чай, кофе, посуда</li>
+        <li>Свежее постельное бельё</li>
+        <li>Ортопедический матрас</li>
+    </ul>
+
+    <h2>Расположение</h2>
+    <p>ЖК Minsk World — это не только современная квартира, но и доступ к множеству удобств:</p>
+    <ul>
+        <li>Метро «Ковальская слобода»</li>
+        <li>Кафе, продуктовые магазины</li>
+        <li>Круглосуточные аптеки, рестораны</li>
+        <li>Торговый центр, магазины</li>
+    </ul>
+
+    <h2>Основные спальные места</h2>
+    <p><strong>Количество мест:</strong> 6</p>
+    <p>1 двуспальная кровать, 1 кровать king-size, 1 двуспальный диван-кровать</p>
+    <h2>Правила</h2>
+    <ul>
+        <li><span class="highlight">можно с детьми по согласованию с хозяином жилья</span></li>
+        <li><span class="highlight">можно с питомцами по согласованию с хозяином жилья</span></li>
+        <li><span class="highlight">курение запрещено</span></li>
+        <li><span class="highlight">вечеринки и мероприятия по согласованию с хозяином жилья</span></li>
+        <li><span class="highlight">владелец предоставляет отчетные документы о проживании по согласованию</span></li>
+    </ul>
+    <p class="contact">По вопросам бронирования: <strong>+375 (29) 123-45-67</strong></p>
+</div>
+<footer>
+    <div class="footer-links">
+        <a href="/privacy-policy">Политика конфиденциальности</a>
+        <a href="/terms-of-service">Условия использования</a>
+        <a href="/about-us">О нас</a>
+        <a href="/faq">Часто задаваемые вопросы</a>
+    </div>
+    <div class="contact-info">
+        <p>Телефон: 0502499433</p>
+        <p>Email: timakubatbekov6@gmail.com</p>
+        <p>Адрес: Проспект Чынгыза Айтматова,66</p>
+    </div>
+    
+    <p>&copy; 2025 Rental App. All rights reserved.</p>
+</footer>
+
+<script>
+    const gallery = document.getElementById("imageGallery");
+    const mainImage = document.getElementById("mainImage");
+    let currentIndex = 0;
+    let images = [];
+
+    function setInitialImage() {
+        images = Array.from(gallery.querySelectorAll("img"));
+        if (images.length > 0) {
+            mainImage.src = images[0].src;
+            images[0].classList.add("active");
+        }
+    }
+
+    function changeImage(img) {
+        mainImage.src = img.src;
+        updateActiveImage(img);
+    }
+
+    function changeImageByStep(step) {
+        currentIndex += step;
+        if (currentIndex < 0) {
+            currentIndex = images.length - 1;
+        } else if (currentIndex >= images.length) {
+            currentIndex = 0; 
+        }
+        mainImage.src = images[currentIndex].src;
+        updateActiveImage(images[currentIndex]);
+    }
+
+    function updateActiveImage(selectedImage) {
+        images.forEach(img => img.classList.remove("active"));
+        selectedImage.classList.add("active");
+        currentIndex = images.indexOf(selectedImage);
+    }
+
+    gallery.addEventListener("wheel", (event) => {
+        event.preventDefault();
+        gallery.scrollTop += event.deltaY;
+    });
+
+    window.onload = setInitialImage;
+</script>
+
+</body>
+</html>

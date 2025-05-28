@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Объявление</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://w7.pngwing.com/pngs/715/694/png-transparent-gold-r-logo-letter-p-clolorful-letters-miscellaneous-text-number-thumbnail.png" width="20" height="20" />
+      Rental App
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="#">Мои бронирования</a></li>
+        <li><a href="#">Профиль</a></li>
+        <li><a href="#">Войти</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <div class="gallery-container">
+      <div class="preview-container">
+        <button class="nav-button prev" onclick="changeImageByStep(-1)">❮</button>
+        <img id="mainImage" class="preview" src="" alt="Главное изображение" />
+        <button class="nav-button next" onclick="changeImageByStep(1)">❯</button>
+      </div>
+      <div class="gallery" id="imageGallery">
+      </div>
+
+    <div class="map-container">
+        <h3 style="font-family: TT Berlinerins Trial; text-align: center;">Местоположение</h3>
+    <iframe id="googleMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23396.754154542392!2d74.5539607681249!3d42.86029955361739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ec9dbf3d3ab87%3A0x6705f2d4a45cdd99!2z0JrRi9GA0LPRi9C30YHQutC40Lkg0YLQtdGF0L3QuNGH0LXRgdC60LjQuSDRg9C90LjQstC10YDRgdC40YLQtdGC!5e0!3m2!1sru!2skg!4v1744041424029!5m2!1sru!2skg"
+    width="520" 
+    height="350" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    </div>
+    </div>
+
+
+
+
+
+    <div class="container">
+      <h1 id="listingTitle">Загрузка...</h1>
+      <p id="listingDescription"></p>
+      <p><strong>Город:</strong> <span id="listingCity"></span></p>
+      <p><strong>Цена:</strong> <span id="listingPrice"></span> сом/мес</p>
+      <!-- Место для карты или других деталей -->
+    </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">Политика конфиденциальности</a>
+      <a href="#">Условия использования</a>
+      <a href="#">О нас</a>
+    </div>
+    <p>&copy; 2025 Rental App</p>
+  </footer>
+
+  <script src="listing.js"></script>
+</body>
+</html>
