@@ -1,6 +1,5 @@
 const Listing = require('../models/Listing');
 
-// Получить все объявления
 exports.getAllListings = async (req, res, next) => {
   try {
     const listings = await Listing.find();
@@ -10,7 +9,6 @@ exports.getAllListings = async (req, res, next) => {
   }
 };
 
-// Создать новое объявление
 
 
 exports.createListing = async (req, res, next) => {

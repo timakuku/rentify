@@ -37,7 +37,6 @@ await listing.save();
 res.status(201).json(listing);
 } catch (err) { console.error(err); res.status(500).json({ message: 'Ошибка при создании объявления' }); } });
 
-// POST /api/listings — новое объявление
 
 router.get('/', async (req, res) => {
     const { city, minPrice, maxPrice } = req.query;
@@ -54,7 +53,6 @@ router.get('/', async (req, res) => {
   
 
 
-// Получить одно объявление по id
 router.get('/:id', async (req, res) => {
   try {
     const listing = await Listing.findById(req.params.id);

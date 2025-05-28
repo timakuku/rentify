@@ -64,5 +64,5 @@ window.onload = setInitialImage;
 window.onload = loadListing;
 window.onload = async () => {
 await loadListing();
-setInitialImage(); // инициализируем массив и первую активную картинку
+setInitialImage();
 };

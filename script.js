@@ -1,6 +1,5 @@
 const API_URL = 'http://localhost:3000/api';
 
-// Загрузка объявлений с фильтрацией
 const listingsContainer = document.querySelector('.listings');
 const cityFilter = document.getElementById('cityFilter');
 
@@ -33,7 +32,6 @@ const loadListings = async (filters = {}) => {
 };
 
 
-// Обработчик фильтра по городу
 if (cityFilter) {
   cityFilter.addEventListener('change', () => {
     const selectedCity = cityFilter.value;
@@ -41,7 +39,6 @@ if (cityFilter) {
   });
 }
 
-// Форма регистрации
 const registerForm = document.getElementById('registerForm');
 if (registerForm) {
   registerForm.addEventListener('submit', async (e) => {
@@ -67,7 +64,6 @@ if (registerForm) {
   });
 }
 
-// Форма входа
 const loginForm = document.getElementById('loginForm');
 if (loginForm) {
   loginForm.addEventListener('submit', async (e) => {
@@ -93,7 +89,6 @@ if (loginForm) {
   });
 }
 
-// Создание объявления (если есть форма)
 const listingForm = document.getElementById('listingForm');
 if (listingForm) {
   listingForm.addEventListener('submit', async (e) => {
@@ -117,7 +112,6 @@ try {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`
-      // Не указывай Content-Type вручную — браузер установит его сам для FormData
     },
     body: formData
   });
@@ -134,14 +128,12 @@ try {
   });
 }
 
-// Загружаем все объявления при старте
 document.addEventListener('DOMContentLoaded', () => {
   loadListings();
 });
 
 
 
-// Получаем элементы
 const openModal = document.getElementById("openModal");
 const openRegistrModal = document.getElementById("openRegistrModal");
 const closeModal = document.getElementById("closeModal");
@@ -150,23 +142,18 @@ const modal = document.getElementById("loginModal");
 const modal2 = document.getElementById("registrModal");
 
 
-// Открываем модальное окно при клике на кнопку "Войти"
 openModal.addEventListener("click", () => {
     modal.style.display = "flex";
 });
-// Открываем модальное окно при клике на кнопку "registr"
 openRegistrModal.addEventListener("click", () => {
   modal2.style.display = "flex";
 });
-// Закрываем модальное окно при клике на "×"
 closeModal.addEventListener("click", () => {
     modal.style.display = "none";
 });
-// Закрываем модальное окно при клике на "Registr ×"
 closeRegistrModal.addEventListener("click", () => {
   modal2.style.display = "none";
 });
-// Закрываем модальное окно при клике за его пределами
 window.addEventListener("click", (event) => {
     if (event.target === modal) {
         modal.style.display = "none";
