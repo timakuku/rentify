@@ -3,32 +3,7 @@ const API_URL = 'http://localhost:3000/api';
 const listingsContainer = document.querySelector('.listings');
 const cityFilter = document.getElementById('cityFilter');
 
-  try {
-    const params = new URLSearchParams(filters);
-    const res = await fetch(`${API_URL}/listings?${params}`);
-    const listings = await res.json();
 
-    listingsContainer.innerHTML = '';
-
-    listings.forEach(listing => {
-      console.log(listing.images);
-      console.log(listing); 
-      const card = document.createElement('div');
-      card.className = 'listing-card';
-      card.innerHTML = `
-      <a href="listing.html?id=${listing._id}" class="listing-link"> 
-      <img src="http://localhost:3000${listing.images?.[0] || '/uploads/placeholder.jpg'}" alt="${listing.title}"> 
-      <h3>${listing.title}</h3> <p><strong>${listing.price} сом/мес</strong></p> 
-      <p>${listing.city}</p> 
-      <p>${listing.address || 'Адрес не указан'}</p> 
-      <button class="details-btn">Детали</button> </a>`
-      listingsContainer.appendChild(card);
-    });
-  } catch (err) {
-    console.error('Ошибка загрузки объявлений:', err);
-    listingsContainer.innerHTML = '<p>Не удалось загрузить объявления</p>';
-  }
-;
 
 
 if (cityFilter) {
