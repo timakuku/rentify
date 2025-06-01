@@ -30,23 +30,28 @@
     <main>
         <div>
         <aside class="sidebar">
-  <h2>Фильтр</h2>
+            <h2>Фильтр</h2>
 
-  <select id="cityFilter">
-    <option value="">Все города</option>
-    <option>Bishkek</option>
-    <option>Naryn</option>
-    <option>Osh</option>
-    <option>Talas</option>
-    <option>New York</option>
-    <option>Los Angeles</option>
-    <option>Chicago</option>
-    <option>Dubai</option>
-  </select>
+            <select>
+                <option>Bishkek</option>
+                <option>Naryn</option>
+                <option>Osh</option>
+                <option>Talas</option>
+                <option>New York</option>
+                <option>Los Angeles</option>
+                <option>Chicago</option>
+                <option>Dubai</option>
 
-  <ul class="filters">
-    <!-- Чекбоксы для типов -->
-<li class="filters__item">
+            </select>
+            <ul class="filters">
+
+                <li class="">
+                    <h3 class="filters__title">
+                        Варианты размещения
+                    </h3>
+                    
+                    <ul class="">
+                        <li class="filters__item">
                             <label class="sc-checkbox">
                                 <input type="checkbox" class="sc-checkbox--input" name="is_apartment" data-is-default="true" data-default-value="0">
                                 <span class="filters__children-title">квартиры, апартаменты</span>
@@ -94,33 +99,27 @@
                                 <span class="filters__children-title">апарт-отели</span>
                             </label>
                         </li>
-        <!-- ... аналогично для других вариантов -->
-      </ul>
-    </li>
-
-    <!-- Цены -->
-    <li>
-      <h3 class="filters__title">Цена за сутки</h3>
-      <ul class="filters__children">
-        <li class="filters__item flex-between-center">
-          <div>
-            <span>от</span>
-            <input type="number" id="priceMin" placeholder="0" />
-            <span class="currency">Сом</span>
-          </div>
-          <span>до</span>
-          <div>
-            <input type="number" id="priceMax" placeholder="20 000 +" />
-            <span class="currency">Сом</span>
-          </div>
-        </li>
-      </ul>
-    </li>
-  </ul>
-
-  <button id="applyFilters">Применить фильтр</button>
-</aside>
-
+                    </ul>
+                </li>
+                <li class="">
+                    <h3 class="filters__title">Цена за сутки</h3>
+                    <ul class="filters__children">
+                        <li class="filters__item flex-between-center">
+                            <div class="">
+                                <span class="">от</span>
+                                <input class="" type="number" name="price_min" placeholder="0" >
+                                <span class="currency">Сом</span>
+                            </div>
+                            <span class="">до</span>
+                            <div class="">
+                                <input class="" type="number" name="price_max" placeholder="20 000 +" >
+                                <span class="currency">Сом</span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                </ul>
+        </aside>
     </div>
         <section class="content">
             <h2>Доступные квартиры</h2>
@@ -233,7 +232,12 @@
         
         <p>&copy; 2025 Rental App. All rights reserved.</p>
     </footer>
-
+    <select id="cityFilter">
+        <option value="">Все города</option>
+        <option value="Бишкек">Бишкек</option>
+        <option value="Ош">Ош</option>
+        <option value="Токмок">Токмок</option>
+      </select>
       
 
     <script src="script.js"></script>

@@ -1,6 +1,35 @@
 const API_URL = 'http://localhost:3000/api';
 
+const listingsContainer = document.querySelector('.listings');
+const cityFilter = document.getElementById('cityFilter');
 
+const loadListings = async (filters = {}) => {
+  try {
+    const params = new URLSearchParams(filters);
+    const res = await fetch(`${API_URL}/listings?${params}`);
+    const listings = await res.json();
+
+    listingsContainer.innerHTML = ''; // очищаем контейнер
+
+    listings.forEach(listing => {
+      console.log(listing.images);
+      console.log(listing); 
+      const card = document.createElement('div');
+      card.className = 'listing-card';
+      card.innerHTML = `
+      <a href="listing.html?id=${listing._id}" class="listing-link"> 
+      <img src="http://localhost:3000${listing.images?.[0] || '/uploads/placeholder.jpg'}" alt="${listing.title}"> 
+      <h3>${listing.title}</h3> <p><strong>${listing.price} сом/мес</strong></p> 
+      <p>${listing.city}</p> 
+      <p>${listing.address || 'Адрес не указан'}</p> 
+      <button class="details-btn">Детали</button> </a>`
+      listingsContainer.appendChild(card);
+    });
+  } catch (err) {
+    console.error('Ошибка загрузки объявлений:', err);
+    listingsContainer.innerHTML = '<p>Не удалось загрузить объявления</p>';
+  }
+};
 
 
 if (cityFilter) {
@@ -9,55 +38,6 @@ if (cityFilter) {
     loadListings({ city: selectedCity });
   });
 }
-
-
-// При нажатии "Применить фильтр"
-document.getElementById('applyFilters').addEventListener('click', () => {
-  // 1️⃣ Считываем значения фильтра
-  const city = document.getElementById('cityFilter').value;
-  const priceMin = document.getElementById('priceMin').value;
-  const priceMax = document.getElementById('priceMax').value;
-
-  // Чекбоксы типа жилья
-  const types = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(cb => cb.value);
-
-  // 2️⃣ Собираем объект фильтров
-  const filters = {};
-  if (city) filters.city = city;
-  if (priceMin) filters.minPrice = priceMin;
-  if (priceMax) filters.maxPrice = priceMax;
-  if (types.length > 0) filters.types = types.join(','); // например: "apartment,house"
-
-  // 3️⃣ Загружаем объявления с этими фильтрами
-  loadListings(filters);
-});
-
-// Функция загрузки объявлений (используется и при старте)
-const listingsContainer = document.querySelector('.listings');
-const loadListings = async (filters = {}) => {
-  try {
-    const params = new URLSearchParams(filters);
-    const res = await fetch(`${API_URL}/listings?${params}`);
-    const listings = await res.json();
-
-    listingsContainer.innerHTML = '';
-    listings.forEach(listing => {
-      const card = document.createElement('div');
-      card.className = 'listing-card';
-      card.innerHTML = `
-        <h3>${listing.title}</h3>
-        <p>${listing.price} сом/мес</p>
-        <p>${listing.city}</p>
-      `;
-      listingsContainer.appendChild(card);
-    });
-  } catch (err) {
-    console.error('Ошибка загрузки:', err);
-  }
-};
-
-
-
 
 const registerForm = document.getElementById('registerForm');
 if (registerForm) {
@@ -148,10 +128,13 @@ try {
   });
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  loadListings();
+});
 
 
 
-
+const openModal = document.getElementById("openModal");
 const openRegistrModal = document.getElementById("openRegistrModal");
 const closeModal = document.getElementById("closeModal");
 const closeRegistrModal = document.getElementById("closeRegistrModal");
@@ -195,8 +178,6 @@ images[0].classList.add("active");
 }
 
 
-
-
 function changeImage(img) {
     mainImage.src = img.src;
     updateActiveImage(img);
@@ -220,16 +201,12 @@ function updateActiveImage(selectedImage) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  loadListings();
-  setInitialImage();
-
-  const openModal = document.getElementById("openModal");
-  if (openModal) {
-    openModal.addEventListener("click", () => {
-      modal.style.display = "flex";
-    });
-  }
+const openModal = document.getElementById("openModal");
+if (openModal) {
+openModal.addEventListener("click", () => {
+modal.style.display = "flex";
 });
-
+}
+});
 
 
