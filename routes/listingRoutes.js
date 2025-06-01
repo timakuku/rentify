@@ -63,4 +63,23 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+
+router.get('/', async (req, res) => {
+  const { city, minPrice, maxPrice, types } = req.query;
+  const query = {};
+
+  if (city) query.city = city;
+  if (minPrice) query.price = { ...query.price, $gte: Number(minPrice) };
+  if (maxPrice) query.price = { ...query.price, $lte: Number(maxPrice) };
+
+  if (types) {
+    const typesArray = types.split(','); // ["apartment", "house"]
+    query.type = { $in: typesArray };
+  }
+
+  const listings = await Listing.find(query);
+  res.json(listings);
+});
+
+
 module.exports = router;
