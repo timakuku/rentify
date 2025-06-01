@@ -12,7 +12,7 @@ router.post('/', auth, upload.array('images', 10), createListing);
 module.exports = router;
 // GET /api/listings — все объявления
 router.get('/', async (req, res) => {
-  const listings = await Listing.find();
+  const listings = await Listing.find(); // ← теперь find будет работать
   res.json(listings);
 });
 
