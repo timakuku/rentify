@@ -140,7 +140,7 @@ const loadListings = async (filters = {}) => {
     listings.forEach(listing => {
     const card = document.createElement('div');
     card.className = 'listing-card';
-    const imageSrc = listing.images?.[0] ? `https://rentify-backend.onrender.com${listing.images[0]}` : 'placeholder.jpg';
+    const imageSrc = listing.images?.[0] ? `https://rentify-1-v72p.onrender.com${listing.images[0]}` : 'placeholder.jpg';
     card.innerHTML = `
     <img src="${imageSrc}" alt="${listing.title}">
     <h3>${listing.title}</h3>
