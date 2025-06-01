@@ -37,7 +37,15 @@ res.status(201).json(listing);
 
   
 
-
+router.get('/', async (req, res) => {
+try {
+const listings = await Listing.find();
+res.json(listings); // всегда JSON
+} catch (err) {
+console.error(err);
+res.status(500).json({ message: 'Ошибка сервера' });
+}
+});
 router.get('/:id', async (req, res) => {
   try {
     const listing = await Listing.findById(req.params.id);

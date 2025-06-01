@@ -18,6 +18,8 @@ app.use('/uploads', express.static('uploads'));
 // CORS для GitHub Pages
 app.use(cors({
   origin: 'https://timakuku.github.io',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }));
 
