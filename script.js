@@ -9,7 +9,7 @@ const loadListings = async (filters = {}) => {
     const res = await fetch(`${API_URL}/listings?${params}`);
     const listings = await res.json();
 
-    listingsContainer.innerHTML = ''; // очищаем контейнер
+    listingsContainer.innerHTML = '';
 
     listings.forEach(listing => {
       console.log(listing.images);
@@ -134,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-const openModal = document.getElementById("openModal");
 const openRegistrModal = document.getElementById("openRegistrModal");
 const closeModal = document.getElementById("closeModal");
 const closeRegistrModal = document.getElementById("closeRegistrModal");
