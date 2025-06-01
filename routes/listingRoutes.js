@@ -11,10 +11,7 @@ router.post('/', auth, upload.array('images', 10), createListing);
 
 module.exports = router;
 // GET /api/listings — все объявления
-router.get('/', async (req, res) => {
-  const listings = await Listing.find(); // ← теперь find будет работать
-  res.json(listings);
-});
+
 
 
 // POST /api/listings 
@@ -38,18 +35,6 @@ res.status(201).json(listing);
 } catch (err) { console.error(err); res.status(500).json({ message: 'Ошибка при создании объявления' }); } });
 
 
-router.get('/', async (req, res) => {
-    const { city, minPrice, maxPrice } = req.query;
-  
-    const query = {};
-  
-    if (city) query.city = city;
-    if (minPrice) query.price = { ...query.price, $gte: Number(minPrice) };
-    if (maxPrice) query.price = { ...query.price, $lte: Number(maxPrice) };
-  
-    const listings = await Listing.find(query);
-    res.json(listings);
-  });
   
 
 

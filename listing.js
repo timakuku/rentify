@@ -2,7 +2,7 @@ const API_URL = 'https://rentify-backend.onrender.com/api';
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
-
+const imageBase = 'https://rentify-backend.onrender.com';
 async function loadListing() {
 const res = await fetch(`${API_URL}/listings/${id}`);
 const listing = await res.json();
@@ -18,10 +18,10 @@ const gallery = document.getElementById('imageGallery');
 const mainImage = document.getElementById('mainImage');
 
 if (listing.images && listing.images.length > 0) {
-mainImage.src = `http://localhost:3000${listing.images[0]}`;
+mainImage.src = `imageBase${listing.images[0]}`;
 listing.images.forEach(src => {
 const img = document.createElement('img');
-img.src =` http://localhost:3000${src}`;
+img.src =` imageBase${src}`;
 img.onclick = () => changeImage(img);
 gallery.appendChild(img);
 });
@@ -60,8 +60,6 @@ currentIndex = 0;
 }
 }
 
-window.onload = setInitialImage;
-window.onload = loadListing;
 window.onload = async () => {
 await loadListing();
 setInitialImage();
