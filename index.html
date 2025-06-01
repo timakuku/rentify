@@ -184,6 +184,15 @@ enctype="multipart/form-data">
 <input type="number" id="listingPrice" name="price" placeholder="Цена" required /> 
 <input type="text" id="listingCity" name="city" placeholder="Город" required /> 
 <input type="text" id="listingAddress" name="address" placeholder="Адрес" required /> 
+  <select id="listingType" name="type" required>
+    <option value="">Выберите тип жилья</option>
+    <option value="apartment">квартиры, апартаменты</option>
+    <option value="house">дома, коттеджи</option>
+    <option value="hostel">хостелы</option>
+    <option value="hotel">отели</option>
+    <option value="mini-hotel">мини-гостиницы</option>
+    <option value="guesthouse">гостевые дома</option>
+  </select>
 <input type="file" id="listingImages" name="images" multiple accept="image/*" required /> 
 <button type="submit" class="submit-btn">Добавить</button> 
 </form>

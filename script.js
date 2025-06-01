@@ -73,34 +73,35 @@ if (listingForm) {
       alert('Вы должны войти, чтобы добавить объявление.');
       return;
     }
-    
+
     const formData = new FormData(listingForm);
+
+    // ✅ Добавляем явно поле type (если нужно)
+    formData.append('type', document.getElementById('listingType').value);
 
     const files = document.getElementById('listingImages').files;
     for (let i = 0; i < files.length; i++) {
-    formData.append('images', files[i]);
+      formData.append('images', files[i]);
     }
-    
-try {
-  const res = await fetch(`${API_URL}/listings`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${token}`
-    },
-    body: formData
-  });
-    
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.message);
-    alert('Объявление успешно добавлено!');
-    listingForm.reset();
-    loadListings();
-  } catch (err) {
-    alert('Ошибка создания объявления: ' + err.message);
-  }
-    
+
+    try {
+      const res = await fetch(`${API_URL}/listings`, {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}` },
+        body: formData
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message);
+      alert('Объявление успешно добавлено!');
+      listingForm.reset();
+      loadListings();
+    } catch (err) {
+      alert('Ошибка создания объявления: ' + err.message);
+    }
   });
 }
+
 
 
 
