@@ -196,38 +196,6 @@ images[0].classList.add("active");
 }
 
 
-// ✅ Весь код, который должен запуститься при загрузке страницы
-document.addEventListener('DOMContentLoaded', () => {
-  loadListings();
-  setInitialImage();
-
-  if (openModal) {
-    openModal.addEventListener("click", () => {
-      modal.style.display = "flex";
-    });
-  }
-  if (openRegistrModal) {
-    openRegistrModal.addEventListener("click", () => {
-      modal2.style.display = "flex";
-    });
-  }
-  if (closeModal) {
-    closeModal.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
-  }
-  if (closeRegistrModal) {
-    closeRegistrModal.addEventListener("click", () => {
-      modal2.style.display = "none";
-    });
-  }
-
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  });
-});
 
 
 function changeImage(img) {
