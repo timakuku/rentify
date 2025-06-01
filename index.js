@@ -11,6 +11,13 @@ const app = express();
 
 
 connectDB();
+require('dotenv').config();
+const mongoose = require('mongoose');
+
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('✅ MongoDB подключен!'))
+  .catch(err => console.error('❌ Ошибка подключения:', err));
+
 app.use('/uploads', express.static('uploads'));
 
 
