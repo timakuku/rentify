@@ -109,10 +109,10 @@ if (listingForm) {
 
 // При нажатии "Применить фильтр"
 document.getElementById('applyFilters').addEventListener('click', () => {
-  // 1️⃣ Считываем значения фильтра
   const city = document.getElementById('cityFilter').value;
   const priceMin = document.getElementById('priceMin').value;
   const priceMax = document.getElementById('priceMax').value;
+
 
   // Чекбоксы типа жилья
   const types = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(cb => cb.value);
@@ -122,9 +122,8 @@ document.getElementById('applyFilters').addEventListener('click', () => {
   if (city) filters.city = city;
   if (priceMin) filters.minPrice = priceMin;
   if (priceMax) filters.maxPrice = priceMax;
-  if (types.length > 0) filters.types = types.join(','); // например: "apartment,house"
+  if (types.length > 0) filters.types = types.join(','); // "apartment,house" и т.д.
 
-  // 3️⃣ Загружаем объявления с этими фильтрами
   loadListings(filters);
 });
 
