@@ -69,10 +69,11 @@ if (listingForm) {
     e.preventDefault();
 
     const token = localStorage.getItem('token');
-    if (!token) {
-      alert('Вы должны войти, чтобы добавить объявление.');
-      return;
-    }
+if (!token) {
+  alert('Вы должны войти, чтобы добавить объявление.');
+  return;
+}
+
 
     const formData = new FormData(listingForm);
 
@@ -134,21 +135,35 @@ const loadListings = async (filters = {}) => {
   try {
     const params = new URLSearchParams(filters);
     const res = await fetch(`${API_URL}/listings?${params}`);
+
+    // Проверяем успешность ответа
+    if (!res.ok) {
+      throw new Error(`Ошибка при загрузке: ${res.status} ${res.statusText}`);
+    }
+
     const listings = await res.json();
 
+    if (!listingsContainer) {
+      console.warn('Элемент listingsContainer не найден');
+      return;
+    }
+
     listingsContainer.innerHTML = '';
+
     listings.forEach(listing => {
-    const card = document.createElement('div');
-    card.className = 'listing-card';
-    const imageSrc = listing.images?.[0] ? `https://rentify-1-v72p.onrender.com${listing.images[0]}` : 'placeholder.jpg';
-    card.innerHTML = `
-    <img src="${imageSrc}" alt="${listing.title}">
-    <h3>${listing.title}</h3>
-    <p>${listing.price} сом/мес</p>
-    <p>${listing.city}</p>
-  `;
-  listingsContainer.appendChild(card);
-});
+      const card = document.createElement('div');
+      card.className = 'listing-card';
+      const imageSrc = listing.images?.[0]
+        ? `https://rentify-1-v72p.onrender.com${listing.images[0]}`
+        : 'placeholder.jpg';
+      card.innerHTML = `
+        <img src="${imageSrc}" alt="${listing.title}">
+        <h3>${listing.title}</h3>
+        <p>${listing.price} сом/мес</p>
+        <p>${listing.city}</p>
+      `;
+      listingsContainer.appendChild(card);
+    });
 
   } catch (err) {
     console.error('Ошибка загрузки:', err);
