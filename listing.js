@@ -27,7 +27,7 @@ gallery.appendChild(img);
 });
 }
 }
-/////
+
 let images = [];
 let currentIndex = 0;
 
