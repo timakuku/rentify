@@ -128,25 +128,6 @@ if (applyFiltersBtn) {
 
 
 
-// При нажатии "Применить фильтр"
-document.getElementById('applyFilters').addEventListener('click', () => {
-  const city = document.getElementById('cityFilter').value;
-  const priceMin = document.getElementById('priceMin').value;
-  const priceMax = document.getElementById('priceMax').value;
-
-
-  // Чекбоксы типа жилья
-  const types = Array.from(document.querySelectorAll('input[name="type"]:checked')).map(cb => cb.value);
-
-  // 2️⃣ Собираем объект фильтров
-  const filters = {};
-  if (city) filters.city = city;
-  if (priceMin) filters.minPrice = priceMin;
-  if (priceMax) filters.maxPrice = priceMax;
-  if (types.length > 0) filters.types = types.join(','); // "apartment,house" и т.д.
-
-  loadListings(filters);
-});
 
 // Функция загрузки объявлений (используется и при старте)
 const loadListings = async (filters = {}) => {
