@@ -1,4 +1,4 @@
-const API_URL = 'https://rentify-backend.onrender.com/api';
+const API_URL = 'https://rentify-1-v72p.onrender.com/api';
 
 const listingsContainer = document.querySelector('.listings');
 const cityFilter = document.getElementById('cityFilter');

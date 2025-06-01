@@ -1,4 +1,4 @@
-const API_URL = 'https://rentify-backend.onrender.com/api';
+const API_URL = 'https://rentify-1-v72p.onrender.com/api';
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
