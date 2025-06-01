@@ -56,10 +56,7 @@ const loadListings = async (filters = {}) => {
   }
 };
 
-// Загружаем все объявления при старте
-document.addEventListener('DOMContentLoaded', () => {
-  loadListings();
-});
+
 
 
 const registerForm = document.getElementById('registerForm');
@@ -151,9 +148,7 @@ try {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadListings();
-});
+
 
 
 
@@ -224,12 +219,16 @@ function updateActiveImage(selectedImage) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-const openModal = document.getElementById("openModal");
-if (openModal) {
-openModal.addEventListener("click", () => {
-modal.style.display = "flex";
+  loadListings();
+  setInitialImage();
+
+  const openModal = document.getElementById("openModal");
+  if (openModal) {
+    openModal.addEventListener("click", () => {
+      modal.style.display = "flex";
+    });
+  }
 });
-}
-});
+
 
 
