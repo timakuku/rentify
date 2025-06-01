@@ -102,9 +102,7 @@ try {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadListings();
-});
+
 
 
 
@@ -138,26 +136,26 @@ const loadListings = async (filters = {}) => {
 
     listingsContainer.innerHTML = '';
     listings.forEach(listing => {
-      const card = document.createElement('div');
-      card.className = 'listing-card';
-      card.innerHTML = `
-        <h3>${listing.title}</h3>
-        <p>${listing.price} сом/мес</p>
-        <p>${listing.city}</p>
-      `;
-      listingsContainer.appendChild(card);
-    });
+    const card = document.createElement('div');
+    card.className = 'listing-card';
+    const imageSrc = listing.images?.[0] ? `http://localhost:3000${listing.images[0]}` : 'placeholder.jpg';
+    card.innerHTML = `
+    <img src="${imageSrc}" alt="${listing.title}">
+    <h3>${listing.title}</h3>
+    <p>${listing.price} сом/мес</p>
+    <p>${listing.city}</p>
+  `;
+  listingsContainer.appendChild(card);
+});
+
   } catch (err) {
     console.error('Ошибка загрузки:', err);
   }
 };
 
-// Загружаем все объявления при старте
-document.addEventListener('DOMContentLoaded', () => {
-  loadListings();
-});
 
 
+const openModal = document.getElementById("openModal");
 const openRegistrModal = document.getElementById("openRegistrModal");
 const closeModal = document.getElementById("closeModal");
 const closeRegistrModal = document.getElementById("closeRegistrModal");
@@ -165,22 +163,13 @@ const modal = document.getElementById("loginModal");
 const modal2 = document.getElementById("registrModal");
 
 
-openModal.addEventListener("click", () => {
-    modal.style.display = "flex";
-});
-openRegistrModal.addEventListener("click", () => {
-  modal2.style.display = "flex";
-});
-closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
-});
-closeRegistrModal.addEventListener("click", () => {
-  modal2.style.display = "none";
-});
+
+if (openModal) openModal.addEventListener("click", () => modal.style.display = "flex");
+if (openRegistrModal) openRegistrModal.addEventListener("click", () => modal2.style.display = "flex");
+if (closeModal) closeModal.addEventListener("click", () => modal.style.display = "none");
+if (closeRegistrModal) closeRegistrModal.addEventListener("click", () => modal2.style.display = "none");
 window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-        modal.style.display = "none";
-    }
+  if (event.target === modal) modal.style.display = "none";
 });
 const gallery = document.getElementById("imageGallery");
 const mainImage = document.getElementById("mainImage");
@@ -224,12 +213,15 @@ function updateActiveImage(selectedImage) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-const openModal = document.getElementById("openModal");
-if (openModal) {
-openModal.addEventListener("click", () => {
-modal.style.display = "flex";
+  loadListings();
+  setInitialImage();
+  
+  if (openModal) {
+    openModal.addEventListener("click", () => {
+      modal.style.display = "flex";
+    });
+  }
 });
-}
-});
+
 
 
