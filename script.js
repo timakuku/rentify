@@ -152,7 +152,6 @@ try {
 
 
 
-const openModal = document.getElementById("openModal");
 const openRegistrModal = document.getElementById("openRegistrModal");
 const closeModal = document.getElementById("closeModal");
 const closeRegistrModal = document.getElementById("closeRegistrModal");
