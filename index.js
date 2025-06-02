@@ -11,14 +11,15 @@ const app = express();
 
 // Подключение к базе данных
 connectDB();
+
+// Раздача изображений с CORS-заголовками
 app.use('/uploads', (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://rentify-1-v72p.onrender.com'); // 👈 Разрешить кросс-домен
+  res.header('Access-Control-Allow-Origin', 'https://timakuku.github.io'); // 👈 Разрешить доступ твоего фронта
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 }, express.static('uploads'));
-// Статические файлы (загрузка изображений)
-app.use('/uploads', express.static('uploads'));
 
-// CORS для GitHub Pages
+// Основной CORS для API
 app.use(cors({
   origin: 'https://timakuku.github.io',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -26,11 +27,11 @@ app.use(cors({
   credentials: true
 }));
 
-// Публичные файлы (если есть)
-app.use(express.static('public'));
-
 // Парсинг JSON
 app.use(express.json());
+
+// Публичные файлы (если есть)
+app.use(express.static('public'));
 
 // Роуты
 app.use('/api/auth', authRoutes);
