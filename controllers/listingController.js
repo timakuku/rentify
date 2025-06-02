@@ -12,7 +12,7 @@ exports.getAllListings = async (req, res, next) => {
 
 exports.createListing = async (req, res) => {
   try {
-    const { title, description, price, city, address } = req.body;
+    const { title, description, price, city, address, type } = req.body;
     const files = req.files;
 
     // Загружаем каждую картинку в ImageKit и собираем URL
@@ -33,6 +33,7 @@ exports.createListing = async (req, res) => {
       price,
       city,
       address,
+      type,
       images: imageUrls,
       user: req.user.id // если у тебя в req.user хранится id
     });
