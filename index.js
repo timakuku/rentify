@@ -12,7 +12,7 @@ const app = express();
 // Подключение к базе данных
 connectDB();
 app.use('/uploads', (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*'); // 👈 Разрешить кросс-домен
+  res.header('Access-Control-Allow-Origin', 'https://rentify-1-v72p.onrender.com'); // 👈 Разрешить кросс-домен
   next();
 }, express.static('uploads'));
 // Статические файлы (загрузка изображений)
