@@ -14,7 +14,7 @@ connectDB();
 
 // Раздача изображений с CORS-заголовками
 app.use('/uploads', (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://timakuku.github.io'); // 👈 Разрешить доступ твоего фронта
+  res.header('Access-Control-Allow-Origin', 'https://timakuku.github.io','https://rentify-1-v72p.onrender.com'); // 👈 Разрешить доступ твоего фронта
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 }, express.static('uploads'));
