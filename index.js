@@ -9,7 +9,7 @@ const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
 
-// Подключение к базе данных
+// Подключение к бд
 connectDB();
 
 // Раздача изображений с CORS-заголовками
