@@ -85,7 +85,9 @@ if (!token) {
     for (let i = 0; i < files.length; i++) {
       formData.append('images', files[i]);
     }
-
+  for (const pair of formData.entries()) {
+    console.log(pair[0], pair[1]);
+  }
     try {
       const res = await fetch(`${API_URL}/listings`, {
         method: 'POST',

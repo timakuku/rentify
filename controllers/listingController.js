@@ -8,7 +8,6 @@ exports.createListing = async (req, res) => {
   try {
     console.log("req.body:", req.body);
     console.log("req.files:", req.files);
-
     const { title, description, price, city, address, type } = req.body;
     const files = req.files;
 
