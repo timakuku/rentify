@@ -7,7 +7,7 @@ price: Number,
 city: String,
 address: String,
 images: [String],
-type: String,
+type: [String],
 user: {
 type: mongoose.Schema.Types.ObjectId,
 ref: 'User'
