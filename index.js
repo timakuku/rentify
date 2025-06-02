@@ -19,6 +19,8 @@ app.use('/uploads', (req, res, next) => {
   next();
 }, express.static('uploads'));
 
+console.log("IMAGEKIT_PUBLIC_KEY:", process.env.IMAGEKIT_PUBLIC_KEY);
+
 // Основной CORS для API
 app.use(cors({
   origin: 'https://timakuku.github.io',
