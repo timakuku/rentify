@@ -6,6 +6,7 @@ const cityFilter = document.getElementById('cityFilter');
 
 
 
+
 if (cityFilter) {
   cityFilter.addEventListener('change', () => {
     const selectedCity = cityFilter.value;

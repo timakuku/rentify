@@ -3,13 +3,21 @@ const imagekit = require("../config/imagekit");
 
 
 
+
 exports.createListing = async (req, res) => {
   try {
+    console.log("req.body:", req.body);
+    console.log("req.files:", req.files);
+
     const { title, description, price, city, address, type } = req.body;
     const files = req.files;
 
     if (!files || files.length === 0) {
       return res.status(400).json({ message: "Файлы не загружены!" });
+    }
+
+    if (!type) {
+      return res.status(400).json({ message: "Тип объекта обязателен!" });
     }
 
     const imageUrls = await Promise.all(
@@ -19,7 +27,7 @@ exports.createListing = async (req, res) => {
           fileName: file.originalname,
           folder: "/rentify-images"
         });
-        console.log("Загружен файл:", result.url);
+        console.log("Загружен файл в ImageKit:", result.url);
         return result.url;
       })
     );
@@ -30,7 +38,7 @@ exports.createListing = async (req, res) => {
       price,
       city,
       address,
-      type,
+      type, // обязательно!
       images: imageUrls,
       user: req.user.id
     });
@@ -42,6 +50,7 @@ exports.createListing = async (req, res) => {
     res.status(500).json({ message: "Ошибка при создании объявления" });
   }
 };
+
 
 
 // controllers/listingController.js
