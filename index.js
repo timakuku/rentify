@@ -11,7 +11,10 @@ const app = express();
 
 // Подключение к базе данных
 connectDB();
-
+app.use('/uploads', (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*'); // 👈 Разрешить кросс-домен
+  next();
+}, express.static('uploads'));
 // Статические файлы (загрузка изображений)
 app.use('/uploads', express.static('uploads'));
 
