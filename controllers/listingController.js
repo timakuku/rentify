@@ -44,3 +44,28 @@ exports.createListing = async (req, res) => {
     res.status(500).json({ message: "Ошибка при создании объявления" });
   }
 };
+
+// controllers/listingController.js
+
+exports.getAllListings = async (req, res, next) => {
+  try {
+    const { city, minPrice, maxPrice, types } = req.query;
+    const query = {};
+
+    if (city) query.city = city;
+    if (minPrice) query.price = { ...query.price, $gte: Number(minPrice) };
+    if (maxPrice) query.price = { ...query.price, $lte: Number(maxPrice) };
+
+    if (types) {
+      const typesArray = types.split(','); // например: "apartment,house"
+      query.type = { $in: typesArray };
+    }
+
+    console.log('query для фильтрации:', query); // ⚡️ ПРОВЕРКА В КОНСОЛИ!
+
+    const listings = await Listing.find(query);
+    res.json(listings);
+  } catch (err) {
+    next(err);
+  }
+};
