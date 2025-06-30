@@ -157,13 +157,14 @@ const loadListings = async (filters = {}) => {
       const card = document.createElement('div');
       card.className = 'listing-card';
       const imageSrc = listing.images?.[0] || 'placeholder.jpg';
-
       card.innerHTML = `
-        <img src="${imageSrc}" alt="${listing.title}">
-        <h3>${listing.title}</h3>
-        <p>${listing.price} сом/мес</p>
-        <p>${listing.city}</p>
-      `;
+      <a href="listing.html?id=${listing._id}" 
+      class="card-link"> 
+      <img src="${imageSrc}" 
+      alt="${listing.title}"> 
+      <h3>${listing.title}</h3> 
+      <p>${listing.price} сом/мес</p> 
+      <p>${listing.city}</p> </a>`;
       listingsContainer.appendChild(card);
     });
 
