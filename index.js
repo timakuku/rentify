@@ -23,10 +23,7 @@ console.log("IMAGEKIT_PUBLIC_KEY:", process.env.IMAGEKIT_PUBLIC_KEY);
 
 // Основной CORS для API
 app.use(cors({
-  origin: 'https://timakuku.github.io',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
+origin: process.env.CLIENT_ORIGIN || 'https://timakuku.github.io',
 }));
 
 // Парсинг JSON
