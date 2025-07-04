@@ -14,9 +14,7 @@ const text = await res.text();
 throw new Error(`Ошибка: ${res.status} — ${text}`);
 }
 
-javascript
-Копировать
-Редактировать
+
 const listing = await res.json();
 
 // Заполнение текста
