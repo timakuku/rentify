@@ -25,7 +25,16 @@ res.json(listings);
 next(err);
 }
 };
-
+exports.getListingById = async (req, res) => {
+try {
+const listing = await Listing.findById(req.params.id);
+if (!listing) return res.status(404).json({ message: 'Объявление не найдено' });
+res.json(listing);
+} catch (err) {
+console.error('Ошибка в getListingById:', err);
+res.status(500).json({ message: 'Ошибка сервера' });
+}
+};
 // Создание нового объявления
 exports.createListing = async (req, res) => {
 try {
