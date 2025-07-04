@@ -418,3 +418,10 @@ button{
     font-weight: bold;
     color: #d35400;
 }
+#searchBtn{
+    width: 125px;
+    height: 25px;
+    border: none;
+    background-color: rgb(198, 183, 97);
+    color: white;
+}
