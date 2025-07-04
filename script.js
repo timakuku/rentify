@@ -167,6 +167,10 @@ const loadListings = async (filters = {}) => {
       <p>${listing.city}</p> </a>`;
       listingsContainer.appendChild(card);
     });
+  if (listings.length === 0) {
+    listingsContainer.innerHTML = '<p>Ничего не найдено по вашему запросу.</p>';
+    return;
+  }
 
   } catch (err) {
     console.error('Ошибка загрузки:', err);
