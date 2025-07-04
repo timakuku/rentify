@@ -182,7 +182,26 @@ const closeRegistrModal = document.getElementById("closeRegistrModal");
 const modal = document.getElementById("loginModal");
 const modal2 = document.getElementById("registrModal");
 
+const searchBtn = document.getElementById('searchBtn');
+const searchInput = document.getElementById('searchInput');
 
+if (searchBtn && searchInput) {
+searchBtn.addEventListener('click', () => {
+const searchQuery = searchInput.value.trim();
+const filters = {};
+if (searchQuery) {
+filters.title = searchQuery; // название ключа — по API
+}
+loadListings(filters);
+});
+}
+
+
+searchInput.addEventListener('keydown', (e) => {
+if (e.key === 'Enter') {
+searchBtn.click();
+}
+});
 
 if (openModal) openModal.addEventListener("click", () => modal.style.display = "flex");
 if (openRegistrModal) openRegistrModal.addEventListener("click", () => modal2.style.display = "flex");
