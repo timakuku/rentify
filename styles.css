@@ -88,7 +88,6 @@ nav a:hover {
     padding: 12px;
     width: 350px;
     border: none;
-    word-spacing: 10px;
     border-radius: 10px;
     font-size: 16px;
     text-align: center;
@@ -423,6 +422,7 @@ button{
     width: 125px;
     height: 25px;
     border: none;
+    word-spacing: 10px;
     background-color: rgb(198, 183, 97);
     color: white;
 }
