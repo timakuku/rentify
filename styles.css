@@ -419,10 +419,9 @@ button{
     color: #d35400;
 }
 #searchBtn{
-    width: 125px;
+    width: 68px;
     height: 25px;
     border: none;
-    word-spacing: 10px;
     background-color: rgb(198, 183, 97);
     color: white;
 }
